@@ -1,0 +1,29 @@
+#include <iostream>
+#include <memory>
+
+template <typename T>
+class Box {
+public:
+    Box(T value) : content(std::make_unique<T>(value)) {}
+
+    T& get() {
+        return *content;
+    }
+
+    const T& get() const {
+        return *content;
+    }
+
+private:
+    std::unique_ptr<T> content;
+};
+
+int main() {
+    Box<int> intBox(42);
+    std::cout << "Box contains: " << intBox.get() << std::endl;
+
+    Box<std::string> stringBox("Hello, World!");
+    std::cout << "Box contains: " << stringBox.get() << std::endl;
+
+    return 0;
+}
