@@ -1,0 +1,16 @@
+class DynamicMethods
+  def method_missing(method_name, *args, &block)
+    if method_name.to_s.start_with?('greet_')
+        puts "Hello, #{method_name.to_s.split('_').last.capitalize}!"
+    else
+        super
+    end
+  end
+end
+
+obj = DynamicMethods.new
+obj.greet_alice
+obj.greet_bob
+# 输出:
+# Hello, Alice!
+# Hello, Bob!
