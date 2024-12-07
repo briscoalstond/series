@@ -1,0 +1,9 @@
+import kotlinx.coroutines.*
+
+fun main() = runBlocking {
+    val result = async {
+        delay(1000L) // Simulate long-running task
+        "World!"
+    }.await()
+    println("Hello, $result")
+}
