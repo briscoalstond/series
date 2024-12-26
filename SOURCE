@@ -1,0 +1,7 @@
+#!/bin/bash
+
+SOURCE="/path/to/source"
+DEST="/path/to/backup_$(date +%Y%m%d%H%M%S)"
+
+cp -r "$SOURCE" "$DEST"
+echo "Backup completed to $DEST"
