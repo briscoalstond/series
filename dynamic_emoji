@@ -1,0 +1,11 @@
+### **动态表情符号生成**
+def dynamic_emoji(feeling):
+    emojis = {
+        'happy': '😊',
+        'sad': '😢',
+        'angry': '😠',
+        'surprised': '😲'
+    }
+    return emojis.get(feeling, '🤔')
+
+print(dynamic_emoji('happy'))
