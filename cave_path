@@ -1,0 +1,9 @@
+def cave_path():
+    print("You find a dark cave entrance.")
+    print("1. Enter the cave.")
+    print("2. Walk around it.")
+    choice = input("Enter 1 or 2: ")
+    if choice == '1':
+        print("You find glowing crystals inside the cave.")
+    else:
+        print("You discover an ancient stone tablet outside the cave.")
