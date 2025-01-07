@@ -1,0 +1,17 @@
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main() {
+    ofstream outFile("example.txt");
+    outFile << "Hello, file!" << endl;
+    outFile.close();
+
+    ifstream inFile("example.txt");
+    string content;
+    getline(inFile, content);
+    cout << "文件内容: " << content << endl;
+    inFile.close();
+
+    return 0;
+}
