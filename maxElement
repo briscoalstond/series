@@ -1,0 +1,16 @@
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int arr[] = {45, 12, 78, 34, 89, 23};
+    int n = sizeof(arr) / sizeof(arr[0]);
+
+    int maxElement = *max_element(arr, arr + n);
+    int minElement = *min_element(arr, arr + n);
+
+    cout << "最大值: " << maxElement << endl;
+    cout << "最小值: " << minElement << endl;
+
+    return 0;
+}
