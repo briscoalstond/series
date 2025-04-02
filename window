@@ -1,0 +1,13 @@
+import pandas as pd
+import numpy as np
+import yfinance as yf
+
+data = yf.download("AAPL", start="2022-01-01", end="2023-01-01")
+data['SMA20'] = data['Close'].rolling(window=20).mean()
+data['SMA50'] = data['Close'].rolling(window=50).mean()
+
+buy_signals = (data['SMA20'] > data['SMA50']) & (data['SMA20'].shift(1) <= data['SMA50'].shift(1))
+sell_signals = (data['SMA20'] < data['SMA50']) & (data['SMA20'].shift(1) >= data['SMA50'].shift(1))
+
+data['Signal'] = np.where(buy_signals, 1, np.where(sell_signals, -1, 0))
+print(data[['Close', 'SMA20', 'SMA50', 'Signal']].tail())
