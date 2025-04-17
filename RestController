@@ -1,0 +1,8 @@
+@RestController
+@RequestMapping("/api")
+public class HelloController {
+    @GetMapping("/hello")
+    public ResponseEntity<String> hello(@RequestParam String name) {
+        return ResponseEntity.ok("Hello, " + name + "!");
+    }
+}
